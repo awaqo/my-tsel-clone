@@ -24,7 +24,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             icon: Container(
                 margin: EdgeInsets.symmetric(vertical: 5),
                 child: Image.asset(
-                  'assets/icons/icon-home.png',
+                  _selectedIndex == 0 ? 'assets/icons/icon-home.png' : 'assets/icons/icon-home-outline.png',
                   height: 20,
                   color: _selectedIndex == 0 ? red2Color : grey3Color,
                 )),

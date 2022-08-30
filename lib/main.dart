@@ -14,7 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Telkomsel App Clone',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(bottomNavigationBarTheme: BottomNavigationBarThemeData(selectedItemColor: red2Color)),
+      theme: ThemeData(
+        bottomNavigationBarTheme:
+            BottomNavigationBarThemeData(selectedItemColor: red2Color), // ganti warna label navbar
+      ),
       home: BottomNavBar(),
     );
   }
