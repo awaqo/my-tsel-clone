@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_tsel_clone/screens/explore/explore.dart';
+import 'package:my_tsel_clone/screens/home/home.dart';
+import 'package:my_tsel_clone/screens/menu/menu.dart';
+import 'package:my_tsel_clone/screens/poin/poin.dart';
+import 'package:my_tsel_clone/screens/shop/shop.dart';
 import 'package:my_tsel_clone/themes.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -10,6 +15,14 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
+
+  final _screens = [
+    HomePage(),
+    PoinPage(),
+    ShopPage(),
+    ExplorePage(),
+    MenuPage(),
+  ];
   @override
   Widget build(BuildContext context) {
     Widget customNavBar() {
@@ -24,7 +37,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
             icon: Container(
                 margin: EdgeInsets.symmetric(vertical: 5),
                 child: Image.asset(
-                  _selectedIndex == 0 ? 'assets/icons/icon-home.png' : 'assets/icons/icon-home-outline.png',
+                  _selectedIndex == 0
+                      ? 'assets/icons/icon-home.png'
+                      : 'assets/icons/icon-home-outline.png',
                   height: 20,
                   color: _selectedIndex == 0 ? red2Color : grey3Color,
                 )),
@@ -76,6 +91,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
     return Scaffold(
       bottomNavigationBar: customNavBar(),
+      body: Stack(
+          children: _screens
+              .asMap()
+              .map((i, screen) => MapEntry(
+                  i,
+                  Offstage(
+                    offstage: _selectedIndex != i,
+                    child: screen,
+                  )))
+              .values
+              .toList()),
     );
   }
 }
