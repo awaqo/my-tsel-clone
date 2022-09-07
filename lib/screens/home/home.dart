@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_tsel_clone/screens/home/components/card_info_home_1.dart';
 import 'package:my_tsel_clone/themes.dart';
 
 class HomePage extends StatelessWidget {
@@ -49,7 +50,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Hi, James',
+                  'Hi, Aqil',
                   style: bold15.copyWith(color: Colors.white),
                 ),
                 Row(
@@ -99,6 +100,14 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget cardInfo() {
+      return Column(
+        children: [
+          CardInfoHome(),
+        ],
+      );
+    }
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -112,6 +121,7 @@ class HomePage extends StatelessWidget {
         child: ListView(
           children: [
             header(),
+            cardInfo(),
           ],
         ),
       ),
